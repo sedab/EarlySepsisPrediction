@@ -341,6 +341,31 @@ def Train_Model(model, train_dataloader, valid_dataloader, num_epochs = 300, pat
 
 
 
+#main
+
+from GRUD import * 
+
+
+train_dataloader, valid_dataloader, test_dataloader, max_dat, X_mean = PrepareDataset(all_df, BATCH_SIZE = 32, masking = True)
+
+
+inputs, labels = next(iter(train_dataloader))
+
+[batch_size, type_size, step_size, fea_size] = inputs.size()
+
+input_dim = fea_size
+hidden_dim = fea_size
+output_dim = fea_size
+    
+grud = GRUD(input_dim, hidden_dim, output_dim, X_mean, output_last = True)
+best_grud, losses_grud = Train_Model(grud, train_dataloader, valid_dataloader)
+
+
+torch.save(best_grud.state_dict(), '/scratch/sb3923/time_series/EarlySepsisPrediction/RNN-missingval/checkpoints/best_grud.pth')
+
+torch.save(losses_grud, "/scratch/sb3923/time_series/EarlySepsisPrediction/RNN-missingval/checkpoints/losses_grud.pt")
+
+
 
 
 
