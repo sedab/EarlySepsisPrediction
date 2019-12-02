@@ -1,0 +1,230 @@
+/opt/slurm/data/slurmd/job5941784/slurm_script: line 14: pip: command not found
+Requirement already up-to-date: pandas==0.24.1 in /home/sb3923/.local/lib/python3.5/site-packages
+Collecting numpy>=1.12.0 (from pandas==0.24.1)
+  Using cached https://files.pythonhosted.org/packages/ab/e9/2561dbfbc05146bffa02167e09b9902e273decb2dc4cd5c43314ede20312/numpy-1.17.4-cp35-cp35m-manylinux1_x86_64.whl
+Requirement already up-to-date: python-dateutil>=2.5.0 in /home/sb3923/.local/lib/python3.5/site-packages (from pandas==0.24.1)
+Requirement already up-to-date: pytz>=2011k in /home/sb3923/.local/lib/python3.5/site-packages (from pandas==0.24.1)
+Requirement already up-to-date: six>=1.5 in /home/sb3923/.local/lib/python3.5/site-packages (from python-dateutil>=2.5.0->pandas==0.24.1)
+Installing collected packages: numpy
+Successfully installed numpy-1.17.4
+You are using pip version 9.0.1, however version 19.3.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+
+Jupyter server is running on: gpu-02
+Job starts at: Mon Dec  2 15:26:05 EST 2019
+
+Step 1 :
+
+If you are working in NYU campus, please open an iTerm window, run command
+
+ssh -L 7594:localhost:7594 sb3923@prince.hpc.nyu.edu
+
+If you are working off campus, you should already have ssh tunneling setup through HPC bastion host, 
+that you can directly login to prince with command
+
+ssh sb3923@prince
+
+Please open an iTerm window, run command
+
+ssh -L 7594:localhost:7594 sb3923@prince
+
+Step 2:
+
+Keep the iTerm windows in the previouse step open. Now open browser, find the line with
+
+The Jupyter Notebook is running at: gpu-02
+
+the URL is something: http://localhost:7594/?token=XXXXXXXX (see your token below)
+
+you should be able to connect to jupyter notebook running remotly on prince compute node with above url
+
+[I 15:26:07.716 NotebookApp] Writing notebook server cookie secret to /state/partition1/job-5941784/jupyter/notebook_cookie_secret
+[W 15:26:08.479 NotebookApp] Widgets are unavailable. Please install widgetsnbextension or ipywidgets 4.0
+[I 15:26:08.511 NotebookApp] Serving notebooks from local directory: /scratch/sb3923/time_series
+[I 15:26:08.511 NotebookApp] 0 active kernels 
+[I 15:26:08.511 NotebookApp] The Jupyter Notebook is running at: http://localhost:7594/?token=2a58e3d2590dc50ade8a863ac9e7c2d05e722190d15599aa
+[I 15:26:08.512 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 15:26:08.512 NotebookApp] 
+    
+    Copy/paste this URL into your browser when you connect for the first time,
+    to login with a token:
+        http://localhost:7594/?token=2a58e3d2590dc50ade8a863ac9e7c2d05e722190d15599aa
+[I 15:35:33.413 NotebookApp] 302 GET /?token=2a58e3d2590dc50ade8a863ac9e7c2d05e722190d15599aa (::1) 1.29ms
+[W 15:35:48.548 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20191202152607 (::1) 10.73ms referer=http://localhost:7594/notebooks/train_gru-d.ipynb
+[I 15:35:50.236 NotebookApp] Kernel started: 116515e7-3beb-4143-a0d1-adf353ba8f53
+[I 15:36:54.727 NotebookApp] Saving file at /GRUD.py
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [0,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [1,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [4,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [5,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [6,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [7,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [12,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [18,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [21,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [23,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [27,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [28,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [29,0,0] Assertion `input >= 0. && input <= 1.` failed.
+[I 15:37:50.321 NotebookApp] Saving file at /train_gru-d.ipynb
+[I 15:39:50.329 NotebookApp] Saving file at /train_gru-d.ipynb
+THCudaCheck FAIL file=/pytorch/torch/lib/THC/generic/THCTensorCopy.c line=18 error=59 : device-side assert triggered
+CUDA error after cudaEventDestroy in future dtor: device-side assert triggered[I 15:41:02.177 NotebookApp] Kernel restarted: 116515e7-3beb-4143-a0d1-adf353ba8f53
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [0,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [4,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [6,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [7,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [8,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [10,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [11,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [13,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [16,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [17,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [19,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [23,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [24,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [25,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [29,0,0] Assertion `input >= 0. && input <= 1.` failed.
+[I 15:41:50.320 NotebookApp] Saving file at /train_gru-d.ipynb
+THCudaCheck FAIL file=/pytorch/torch/lib/THC/generic/THCTensorCopy.c line=18 error=59 : device-side assert triggered
+[I 15:43:50.327 NotebookApp] Saving file at /train_gru-d.ipynb
+CUDA error after cudaEventDestroy in future dtor: device-side assert triggered[I 15:44:48.281 NotebookApp] Kernel restarted: 116515e7-3beb-4143-a0d1-adf353ba8f53
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [0,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [20,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [21,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [23,0,0] Assertion `input >= 0. && input <= 1.` failed.
+/pytorch/torch/lib/THCUNN/BCECriterion.cu:30: Acctype bce_functor<Dtype, Acctype>::operator()(Tuple) [with Tuple = thrust::tuple<float, float, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type, thrust::null_type>, Dtype = float, Acctype = float]: block: [0,0,0], thread: [25,0,0] Assertion `input >= 0. && input <= 1.` failed.
+[I 15:45:51.083 NotebookApp] Saving file at /train_gru-d.ipynb
+[I 15:47:44.609 NotebookApp] Saving file at /GRUD.py
+CUDA error after cudaEventDestroy in future dtor: device-side assert triggered[I 15:48:19.306 NotebookApp] Kernel restarted: 116515e7-3beb-4143-a0d1-adf353ba8f53
+[I 15:49:50.327 NotebookApp] Saving file at /train_gru-d.ipynb
+[I 15:49:59.036 NotebookApp] Kernel restarted: 116515e7-3beb-4143-a0d1-adf353ba8f53
+[I 15:51:35.007 NotebookApp] Kernel interrupted: 116515e7-3beb-4143-a0d1-adf353ba8f53
+[I 15:51:50.380 NotebookApp] Saving file at /train_gru-d.ipynb
+[I 15:52:01.645 NotebookApp] Kernel restarted: 116515e7-3beb-4143-a0d1-adf353ba8f53
+[I 15:52:30.422 NotebookApp] Creating new file in 
+[I 15:53:50.361 NotebookApp] Saving file at /train_gru-d.ipynb
+[I 15:55:50.345 NotebookApp] Saving file at /train_gru-d.ipynb
+[I 15:56:29.724 NotebookApp] Kernel restarted: 116515e7-3beb-4143-a0d1-adf353ba8f53
+[I 15:57:50.338 NotebookApp] Saving file at /train_gru-d.ipynb
+[W 16:03:32.696 NotebookApp] delete /slurm-5915841.out
+[W 16:03:32.700 NotebookApp] delete /slurm-5919437.out
+[W 16:03:32.704 NotebookApp] delete /slurm-5923302.out
+[W 16:03:32.706 NotebookApp] delete /slurm-5930891.out
+[I 16:03:44.458 NotebookApp] Creating new directory in 
+[I 16:04:07.089 NotebookApp] Saving file at /train.py
+[I 16:07:52.398 NotebookApp] Kernel interrupted: 116515e7-3beb-4143-a0d1-adf353ba8f53
+[W 16:09:31.046 NotebookApp] No such file or directory: 
+[W 16:09:31.046 NotebookApp] 404 GET /api/contents?type=directory&_=1575318933803 (::1) 1.89ms referer=http://localhost:7594/tree?token=2a58e3d2590dc50ade8a863ac9e7c2d05e722190d15599aa
+[W 16:09:32.732 NotebookApp] 404 GET /tree?token=2a58e3d2590dc50ade8a863ac9e7c2d05e722190d15599aa (::1) 3.52ms referer=None
+[W 16:09:39.374 NotebookApp] 404 GET /tree?token=2a58e3d2590dc50ade8a863ac9e7c2d05e722190d15599aa (::1) 3.47ms referer=None
+[W 16:09:50.926 NotebookApp] No such file or directory: train_gru-d.ipynb
+[W 16:09:50.927 NotebookApp] 404 GET /api/contents/train_gru-d.ipynb?content=0&_=1575318948011 (::1) 2.08ms referer=http://localhost:7594/notebooks/train_gru-d.ipynb
+[I 16:09:51.172 NotebookApp] Uploading file to /train_gru-d.ipynb
+[E 16:09:51.186 NotebookApp] Error while saving file: train_gru-d.ipynb [Errno 2] No such file or directory: '/scratch/sb3923/time_series/train_gru-d.ipynb'
+    Traceback (most recent call last):
+      File "/share/apps/python3/3.5.3/intel/lib/python3.5/site-packages/notebook/services/contents/filemanager.py", line 396, in save
+        self._save_notebook(os_path, nb)
+      File "/share/apps/python3/3.5.3/intel/lib/python3.5/site-packages/notebook/services/contents/fileio.py", line 254, in _save_notebook
+        with self.atomic_writing(os_path, encoding='utf-8') as f:
+      File "/share/apps/python3/3.5.3/intel/lib/python3.5/contextlib.py", line 59, in __enter__
+        return next(self.gen)
+      File "/share/apps/python3/3.5.3/intel/lib/python3.5/site-packages/notebook/services/contents/fileio.py", line 188, in atomic_writing
+        with atomic_writing(os_path, *args, log=self.log, **kwargs) as f:
+      File "/share/apps/python3/3.5.3/intel/lib/python3.5/contextlib.py", line 59, in __enter__
+        return next(self.gen)
+      File "/share/apps/python3/3.5.3/intel/lib/python3.5/site-packages/notebook/services/contents/fileio.py", line 80, in atomic_writing
+        fileobj = io.open(path, 'w', encoding=encoding, **kwargs)
+    FileNotFoundError: [Errno 2] No such file or directory: '/scratch/sb3923/time_series/train_gru-d.ipynb'
+[W 16:09:51.190 NotebookApp] Unexpected error while saving file: train_gru-d.ipynb [Errno 2] No such file or directory: '/scratch/sb3923/time_series/train_gru-d.ipynb'
+[E 16:09:51.191 NotebookApp] {
+      "Accept-Encoding": "gzip, deflate, br",
+      "Sec-Fetch-Site": "same-origin",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+      "Content-Length": "772665",
+      "Origin": "http://localhost:7594",
+      "Accept-Language": "en-US,en;q=0.9,tr;q=0.8",
+      "Referer": "http://localhost:7594/notebooks/train_gru-d.ipynb",
+      "X-Requested-With": "XMLHttpRequest",
+      "X-Xsrftoken": "2|434b8f55|b5d2e8acdde9e9328f2849f73c40b215|1572824339",
+      "Sec-Fetch-Mode": "cors",
+      "Connection": "keep-alive",
+      "Accept": "application/json, text/javascript, */*; q=0.01",
+      "Cookie": "_xsrf=2|434b8f55|b5d2e8acdde9e9328f2849f73c40b215|1572824339; username-localhost-9974=\"2|1:0|10:1572919431|23:username-localhost-9974|44:ZDIzYmEzMjU0NWI5NDQ1NWFiYzc5YzY2NzU2MjYyOGE=|39cc0ce1dd5dee3134764c685edbc0acc95b4875c07d8d41c72c8aee1c775439\"; username-localhost-8816=\"2|1:0|10:1573006137|23:username-localhost-8816|44:MWU2ODM3NmNlODk0NDVhN2E2ZDg4YTFiOGY2YzQ5NTY=|49a56727dd009ea0461d57fe5a26f36c8d382f49a6c6e54d702e0be03cdf56a8\"; username-localhost-8203=\"2|1:0|10:1573057995|23:username-localhost-8203|44:NWI1YmEyOWY1NDFlNDc1ODhiZDRhNTFlNmI0MTY0MDQ=|4cb8f9da02a4bec4dcef94c28ac5c9320e4e8a8712465f1084a4ca79f625e107\"; username-localhost-7200=\"2|1:0|10:1573071472|23:username-localhost-7200|44:NTBhZDYwMmRhMTEwNGQ2OTg3MGQ5YjhhNjcwMjQwMDI=|372e8d893ccd1eeaa4e117a5b1f605d2d29cd5946bb0875936886c82fef5c8ab\"; username-localhost-9423=\"2|1:0|10:1573141469|23:username-localhost-9423|44:ZWI5NTNiMjQ3NzlkNDlkZTliZmJiN2Y5ZTllYzFiNzQ=|cdb409998d6a930d848e42a8afbde064378538e1f51c85f108f11f5d927b62b4\"; username-localhost-6301=\"2|1:0|10:1573247428|23:username-localhost-6301|44:YjQwMTU4OTRlYWEwNGFmMThlM2ZmYzk0MzEwOTc1MDM=|ead6fa82a2b29d788624fee85d6fa2bea9e7b6b402f0279956e9640d3ef40555\"; username-localhost-8890=\"2|1:0|10:1573442661|23:username-localhost-8890|44:ZmMxNDcwMDMzOWQwNGZkMTk3MjUxNmMxZjQ0MjgzMTA=|ee208e85071dc29bfa478957b994621da89126542f8c15bf5adb5f5e7e87b820\"; username-localhost-6363=\"2|1:0|10:1573587567|23:username-localhost-6363|44:YjM3ZWU3Mzg2YWE3NGVhNGE3NWY1MGY4MDc0OWY1Mjc=|05bcc42867c335579537eb7c7fe96729cb0caadbe24e1bafe17fa881ed92b80a\"; username-localhost-8528=\"2|1:0|10:1574045650|23:username-localhost-8528|44:ZTZiZmM3ZTljODNmNGE5Njg0MzkwMDJiOWFmMjUzODQ=|023ac223df19e82dbc4a709b2ce7a6b2ad5bdedb5048b1cf6fd5c8c7ca21988c\"; username-localhost-8408=\"2|1:0|10:1574092542|23:username-localhost-8408|44:Y2JmNDIwMjBlMDI3NDBlN2FlZWE3YTk4NGI1ZjlmYmU=|38ee45d23b639bb992573a201ebb092db683ffba8701fa5027d2bf6ea6665189\"; username-localhost-9227=\"2|1:0|10:1574280238|23:username-localhost-9227|44:NThhNTI2NzA4NDIzNDk2YWFmMTVhMjkyMzdkYzgwNjc=|0c1d6799a86019b7d3c44513cb97cccb2c4fabbbb0c685e4d868dfb2390ca6dd\"; username-localhost-8630=\"2|1:0|10:1574303357|23:username-localhost-8630|44:YWRhMzQ4MWY4NTJmNDZiOGFkNTAzOTBmYjNhODU0MWE=|c260e41fc84ef0314b8a79e079023aae0791e8e44753c3652433ba37e124ac54\"; username-localhost-8489=\"2|1:0|10:1574378506|23:username-localhost-8489|44:ZjhiMDllZDkxNTdjNDRhMWE1MzZlZWMzNmVlOGEyZGE=|5075054c7236c8760e657cb4ee6c1c452554a207a19c99ce2506fdb258005f2b\"; username-localhost-8801=\"2|1:0|10:1574526274|23:username-localhost-8801|44:YTcyYTBkMjEyYTYxNDZlNjkzYmZhY2Q2MzFjZjgxMWI=|65c4108e1df07c552c198a7f63d668890237b59af21a2224ebf6341697e3968d\"; username-localhost-9484=\"2|1:0|10:1574636590|23:username-localhost-9484|44:NWQyMDE3NjcyYWZkNDMxYzhiZWIzMWRmOWM2MGQyNDE=|cb372168a0b309f21e0d4cfe31cd49901ae7672be27f5f4f8d8dc0c37f548d91\"; username-localhost-9581=\"2|1:0|10:1574644196|23:username-localhost-9581|44:YmFjNWE5M2EwMDQzNGVhYjk3MWZmYTFhNjRlZTA1YzI=|2b9872694c87f4c0cf2c5aa4117dfa43adcce81d33fad5224f25b2ab2fb1ad0b\"; username-localhost-8889=\"2|1:0|10:1574795944|23:username-localhost-8889|44:ZDQ5NTliNmNmYzQ5NDc3YzgwOTRiMWVhYmNlMjY1YWY=|92ee1cbe15b0933922644dc4a01eb6e8dbcc330a754e5464be5de5cacc7b4bcf\"; username-localhost-8712=\"2|1:0|10:1574813748|23:username-localhost-8712|44:NDdlYTE0YmNiOTBhNDE1OGJlNmJlNjk5NTczYTA1MmI=|c80ed0df78f4037bdbc5d520c7ae8bb2cf8727be5a35d271df810b80242993c0\"; username-localhost-8941=\"2|1:0|10:1574816572|23:username-localhost-8941|44:Yzk4MWM5Mzk3MTNhNDJlMmI1ODJkZTRhYzJiMGQ2NGI=|f5af72bb76b94edae5240640cb14eb2d0a62e9de2c8d12ed7c2c939709396f7d\"; username-localhost-9919=\"2|1:0|10:1574868089|23:username-localhost-9919|44:M2MzMGJmNDEwY2ZjNDFlN2JjMjM2MjM3NTQ4MjdhMDM=|ade5d9a08e525fcf60ea72cec4b909146cd77deaa37db68c78d7f5569852f799\"; username-localhost-8585=\"2|1:0|10:1574970723|23:username-localhost-8585|44:MTc0YWYyOThhZGQ4NDNiNTg0MjdmNzgyOTljNGExMWY=|f76e7af346ce463643333d428f51a909da7de2ba4746092db008cbeb6776bb52\"; username-localhost-6642=\"2|1:0|10:1574985764|23:username-localhost-6642|44:MjFhYjU4YmU2MWRjNGZhNmI3OGNhM2I2NGUwMDAwZjM=|2fb40f3d7938ef5f69717a20010f8807b3099a34f43a1593583b051b17a29fc3\"; username-localhost-9446=\"2|1:0|10:1574992938|23:username-localhost-9446|44:NGUwMzQ0MTQ4MjQ4NGEzNDkxNGY0MWFiOGViYjc1MTU=|039093429cb6d4b226b5c70da2551c0b38265d99eadb020601d19b47a692bebe\"; username-localhost-7147=\"2|1:0|10:1575049963|23:username-localhost-7147|44:OTJiMTE1OWU0ZDAxNGUyNjgxZDg4MDRjN2JhYzE3ZmY=|0b14b03086683ea63b05d9e9fcf651e2aceee5f878507f4e2b437ef6cb198854\"; username-localhost-8550=\"2|1:0|10:1575051326|23:username-localhost-8550|44:NWQ3Y2ZjZjMzNjAzNDk5NzkzMWQyNGQ0NTlhYjk3ODA=|780e92799ba6167907b93cc1539c6df9169904f0d6b383d7be793a693526dd3a\"; username-localhost-8542=\"2|1:0|10:1575070386|23:username-localhost-8542|44:NDhlODBhNzZlYTIzNDEwODg0NWVmMTBiMzdiZmI5OGY=|b54d984a5fe1259fba87d6eb892f3a042f18268faf67728d97cc3e11735802a7\"; username-localhost-7315=\"2|1:0|10:1575084029|23:username-localhost-7315|44:ZjYwYjI4ZTdkOWQ0NDNhMmJkYzRlOWVhMDRhYjg2OTI=|8171bfbaba5a4186146e44efbdb852aa50febc691e0f991cf005a5bbc3226b1f\"; username-localhost-8888=\"2|1:0|10:1575229772|23:username-localhost-8888|44:YTM5YzBjMzM0NDk2NDFkNzljMzllMWQ1OGY3Mzc3MWQ=|becb994b9e3e47812f1f2fd382a2fcb8bf3145df15d3c904e1ebdbab5d237ee9\"; username-localhost-6469=\"2|1:0|10:1575236605|23:username-localhost-6469|44:MDE5ZGZjOWI2NGVmNDEyNTkyMWM3NGM4NWEwZTdhODI=|1e7824bb235e464f6e3c18231a286132e4e40bc016b6794ae2e1c3441fb12325\"; username-localhost-7138=\"2|1:0|10:1575241104|23:username-localhost-7138|44:NGQzY2E0MThjZTUwNGEyYWJmOGExMDE3ZWM4YjM2Y2Q=|e53c67592b3b92412ecfee0fd8f5e93666e7c2a4a09b4c718495bd0ffff1bb58\"; username-localhost-8164=\"2|1:0|10:1575251097|23:username-localhost-8164|44:NWUwN2U2NTI1MDkyNGVkNmJkMzU1NDNhNmM4NDczMjg=|234ff9ac2028d3d18259e36f9c37b490e1d08577e8c1570ffeaa8e75cf375019\"; username-localhost-7594=\"2|1:0|10:1575320979|23:username-localhost-7594|44:MDVlNjgyNDBiNjRhNGQwN2I4N2NmOTQyYmQ2YTY0ZWE=|665f3a4b9288850a0c66bebc53621786612a994d4053566a39a05de93da56e0e\"",
+      "Host": "localhost:7594",
+      "Content-Type": "application/json"
+    }
+[E 16:09:51.191 NotebookApp] 500 PUT /api/contents/train_gru-d.ipynb (::1) 230.46ms referer=http://localhost:7594/notebooks/train_gru-d.ipynb
+[I 16:09:56.845 NotebookApp] Uploading file to /train.py
+[E 16:09:56.845 NotebookApp] Error while saving file: train.py [Errno 2] No such file or directory: '/scratch/sb3923/time_series/train.py'
+    Traceback (most recent call last):
+      File "/share/apps/python3/3.5.3/intel/lib/python3.5/site-packages/notebook/services/contents/filemanager.py", line 402, in save
+        self._save_file(os_path, model['content'], model.get('format'))
+      File "/share/apps/python3/3.5.3/intel/lib/python3.5/site-packages/notebook/services/contents/fileio.py", line 304, in _save_file
+        with self.atomic_writing(os_path, text=False) as f:
+      File "/share/apps/python3/3.5.3/intel/lib/python3.5/contextlib.py", line 59, in __enter__
+        return next(self.gen)
+      File "/share/apps/python3/3.5.3/intel/lib/python3.5/site-packages/notebook/services/contents/fileio.py", line 188, in atomic_writing
+        with atomic_writing(os_path, *args, log=self.log, **kwargs) as f:
+      File "/share/apps/python3/3.5.3/intel/lib/python3.5/contextlib.py", line 59, in __enter__
+        return next(self.gen)
+      File "/share/apps/python3/3.5.3/intel/lib/python3.5/site-packages/notebook/services/contents/fileio.py", line 82, in atomic_writing
+        fileobj = io.open(path, 'wb', **kwargs)
+    FileNotFoundError: [Errno 2] No such file or directory: '/scratch/sb3923/time_series/train.py'
+[W 16:09:56.846 NotebookApp] Unexpected error while saving file: train.py [Errno 2] No such file or directory: '/scratch/sb3923/time_series/train.py'
+[E 16:09:56.846 NotebookApp] {
+      "Accept-Encoding": "gzip, deflate, br",
+      "Sec-Fetch-Site": "same-origin",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+      "Content-Length": "12875",
+      "Origin": "http://localhost:7594",
+      "Accept-Language": "en-US,en;q=0.9,tr;q=0.8",
+      "Referer": "http://localhost:7594/edit/train.py",
+      "X-Requested-With": "XMLHttpRequest",
+      "X-Xsrftoken": "2|434b8f55|b5d2e8acdde9e9328f2849f73c40b215|1572824339",
+      "Sec-Fetch-Mode": "cors",
+      "Connection": "keep-alive",
+      "Accept": "application/json, text/javascript, */*; q=0.01",
+      "Cookie": "_xsrf=2|434b8f55|b5d2e8acdde9e9328f2849f73c40b215|1572824339; username-localhost-9974=\"2|1:0|10:1572919431|23:username-localhost-9974|44:ZDIzYmEzMjU0NWI5NDQ1NWFiYzc5YzY2NzU2MjYyOGE=|39cc0ce1dd5dee3134764c685edbc0acc95b4875c07d8d41c72c8aee1c775439\"; username-localhost-8816=\"2|1:0|10:1573006137|23:username-localhost-8816|44:MWU2ODM3NmNlODk0NDVhN2E2ZDg4YTFiOGY2YzQ5NTY=|49a56727dd009ea0461d57fe5a26f36c8d382f49a6c6e54d702e0be03cdf56a8\"; username-localhost-8203=\"2|1:0|10:1573057995|23:username-localhost-8203|44:NWI1YmEyOWY1NDFlNDc1ODhiZDRhNTFlNmI0MTY0MDQ=|4cb8f9da02a4bec4dcef94c28ac5c9320e4e8a8712465f1084a4ca79f625e107\"; username-localhost-7200=\"2|1:0|10:1573071472|23:username-localhost-7200|44:NTBhZDYwMmRhMTEwNGQ2OTg3MGQ5YjhhNjcwMjQwMDI=|372e8d893ccd1eeaa4e117a5b1f605d2d29cd5946bb0875936886c82fef5c8ab\"; username-localhost-9423=\"2|1:0|10:1573141469|23:username-localhost-9423|44:ZWI5NTNiMjQ3NzlkNDlkZTliZmJiN2Y5ZTllYzFiNzQ=|cdb409998d6a930d848e42a8afbde064378538e1f51c85f108f11f5d927b62b4\"; username-localhost-6301=\"2|1:0|10:1573247428|23:username-localhost-6301|44:YjQwMTU4OTRlYWEwNGFmMThlM2ZmYzk0MzEwOTc1MDM=|ead6fa82a2b29d788624fee85d6fa2bea9e7b6b402f0279956e9640d3ef40555\"; username-localhost-8890=\"2|1:0|10:1573442661|23:username-localhost-8890|44:ZmMxNDcwMDMzOWQwNGZkMTk3MjUxNmMxZjQ0MjgzMTA=|ee208e85071dc29bfa478957b994621da89126542f8c15bf5adb5f5e7e87b820\"; username-localhost-6363=\"2|1:0|10:1573587567|23:username-localhost-6363|44:YjM3ZWU3Mzg2YWE3NGVhNGE3NWY1MGY4MDc0OWY1Mjc=|05bcc42867c335579537eb7c7fe96729cb0caadbe24e1bafe17fa881ed92b80a\"; username-localhost-8528=\"2|1:0|10:1574045650|23:username-localhost-8528|44:ZTZiZmM3ZTljODNmNGE5Njg0MzkwMDJiOWFmMjUzODQ=|023ac223df19e82dbc4a709b2ce7a6b2ad5bdedb5048b1cf6fd5c8c7ca21988c\"; username-localhost-8408=\"2|1:0|10:1574092542|23:username-localhost-8408|44:Y2JmNDIwMjBlMDI3NDBlN2FlZWE3YTk4NGI1ZjlmYmU=|38ee45d23b639bb992573a201ebb092db683ffba8701fa5027d2bf6ea6665189\"; username-localhost-9227=\"2|1:0|10:1574280238|23:username-localhost-9227|44:NThhNTI2NzA4NDIzNDk2YWFmMTVhMjkyMzdkYzgwNjc=|0c1d6799a86019b7d3c44513cb97cccb2c4fabbbb0c685e4d868dfb2390ca6dd\"; username-localhost-8630=\"2|1:0|10:1574303357|23:username-localhost-8630|44:YWRhMzQ4MWY4NTJmNDZiOGFkNTAzOTBmYjNhODU0MWE=|c260e41fc84ef0314b8a79e079023aae0791e8e44753c3652433ba37e124ac54\"; username-localhost-8489=\"2|1:0|10:1574378506|23:username-localhost-8489|44:ZjhiMDllZDkxNTdjNDRhMWE1MzZlZWMzNmVlOGEyZGE=|5075054c7236c8760e657cb4ee6c1c452554a207a19c99ce2506fdb258005f2b\"; username-localhost-8801=\"2|1:0|10:1574526274|23:username-localhost-8801|44:YTcyYTBkMjEyYTYxNDZlNjkzYmZhY2Q2MzFjZjgxMWI=|65c4108e1df07c552c198a7f63d668890237b59af21a2224ebf6341697e3968d\"; username-localhost-9484=\"2|1:0|10:1574636590|23:username-localhost-9484|44:NWQyMDE3NjcyYWZkNDMxYzhiZWIzMWRmOWM2MGQyNDE=|cb372168a0b309f21e0d4cfe31cd49901ae7672be27f5f4f8d8dc0c37f548d91\"; username-localhost-9581=\"2|1:0|10:1574644196|23:username-localhost-9581|44:YmFjNWE5M2EwMDQzNGVhYjk3MWZmYTFhNjRlZTA1YzI=|2b9872694c87f4c0cf2c5aa4117dfa43adcce81d33fad5224f25b2ab2fb1ad0b\"; username-localhost-8889=\"2|1:0|10:1574795944|23:username-localhost-8889|44:ZDQ5NTliNmNmYzQ5NDc3YzgwOTRiMWVhYmNlMjY1YWY=|92ee1cbe15b0933922644dc4a01eb6e8dbcc330a754e5464be5de5cacc7b4bcf\"; username-localhost-8712=\"2|1:0|10:1574813748|23:username-localhost-8712|44:NDdlYTE0YmNiOTBhNDE1OGJlNmJlNjk5NTczYTA1MmI=|c80ed0df78f4037bdbc5d520c7ae8bb2cf8727be5a35d271df810b80242993c0\"; username-localhost-8941=\"2|1:0|10:1574816572|23:username-localhost-8941|44:Yzk4MWM5Mzk3MTNhNDJlMmI1ODJkZTRhYzJiMGQ2NGI=|f5af72bb76b94edae5240640cb14eb2d0a62e9de2c8d12ed7c2c939709396f7d\"; username-localhost-9919=\"2|1:0|10:1574868089|23:username-localhost-9919|44:M2MzMGJmNDEwY2ZjNDFlN2JjMjM2MjM3NTQ4MjdhMDM=|ade5d9a08e525fcf60ea72cec4b909146cd77deaa37db68c78d7f5569852f799\"; username-localhost-8585=\"2|1:0|10:1574970723|23:username-localhost-8585|44:MTc0YWYyOThhZGQ4NDNiNTg0MjdmNzgyOTljNGExMWY=|f76e7af346ce463643333d428f51a909da7de2ba4746092db008cbeb6776bb52\"; username-localhost-6642=\"2|1:0|10:1574985764|23:username-localhost-6642|44:MjFhYjU4YmU2MWRjNGZhNmI3OGNhM2I2NGUwMDAwZjM=|2fb40f3d7938ef5f69717a20010f8807b3099a34f43a1593583b051b17a29fc3\"; username-localhost-9446=\"2|1:0|10:1574992938|23:username-localhost-9446|44:NGUwMzQ0MTQ4MjQ4NGEzNDkxNGY0MWFiOGViYjc1MTU=|039093429cb6d4b226b5c70da2551c0b38265d99eadb020601d19b47a692bebe\"; username-localhost-7147=\"2|1:0|10:1575049963|23:username-localhost-7147|44:OTJiMTE1OWU0ZDAxNGUyNjgxZDg4MDRjN2JhYzE3ZmY=|0b14b03086683ea63b05d9e9fcf651e2aceee5f878507f4e2b437ef6cb198854\"; username-localhost-8550=\"2|1:0|10:1575051326|23:username-localhost-8550|44:NWQ3Y2ZjZjMzNjAzNDk5NzkzMWQyNGQ0NTlhYjk3ODA=|780e92799ba6167907b93cc1539c6df9169904f0d6b383d7be793a693526dd3a\"; username-localhost-8542=\"2|1:0|10:1575070386|23:username-localhost-8542|44:NDhlODBhNzZlYTIzNDEwODg0NWVmMTBiMzdiZmI5OGY=|b54d984a5fe1259fba87d6eb892f3a042f18268faf67728d97cc3e11735802a7\"; username-localhost-7315=\"2|1:0|10:1575084029|23:username-localhost-7315|44:ZjYwYjI4ZTdkOWQ0NDNhMmJkYzRlOWVhMDRhYjg2OTI=|8171bfbaba5a4186146e44efbdb852aa50febc691e0f991cf005a5bbc3226b1f\"; username-localhost-8888=\"2|1:0|10:1575229772|23:username-localhost-8888|44:YTM5YzBjMzM0NDk2NDFkNzljMzllMWQ1OGY3Mzc3MWQ=|becb994b9e3e47812f1f2fd382a2fcb8bf3145df15d3c904e1ebdbab5d237ee9\"; username-localhost-6469=\"2|1:0|10:1575236605|23:username-localhost-6469|44:MDE5ZGZjOWI2NGVmNDEyNTkyMWM3NGM4NWEwZTdhODI=|1e7824bb235e464f6e3c18231a286132e4e40bc016b6794ae2e1c3441fb12325\"; username-localhost-7138=\"2|1:0|10:1575241104|23:username-localhost-7138|44:NGQzY2E0MThjZTUwNGEyYWJmOGExMDE3ZWM4YjM2Y2Q=|e53c67592b3b92412ecfee0fd8f5e93666e7c2a4a09b4c718495bd0ffff1bb58\"; username-localhost-8164=\"2|1:0|10:1575251097|23:username-localhost-8164|44:NWUwN2U2NTI1MDkyNGVkNmJkMzU1NDNhNmM4NDczMjg=|234ff9ac2028d3d18259e36f9c37b490e1d08577e8c1570ffeaa8e75cf375019\"; username-localhost-7594=\"2|1:0|10:1575320979|23:username-localhost-7594|44:MDVlNjgyNDBiNjRhNGQwN2I4N2NmOTQyYmQ2YTY0ZWE=|665f3a4b9288850a0c66bebc53621786612a994d4053566a39a05de93da56e0e\"",
+      "Host": "localhost:7594",
+      "Content-Type": "application/json"
+    }
+[E 16:09:56.846 NotebookApp] 500 PUT /api/contents/train.py (::1) 2.90ms referer=http://localhost:7594/edit/train.py
+[W 16:11:50.278 NotebookApp] No such file or directory: train_gru-d.ipynb
+[W 16:11:50.287 NotebookApp] 404 GET /api/contents/train_gru-d.ipynb?content=0&_=1575318948012 (::1) 10.07ms referer=http://localhost:7594/notebooks/train_gru-d.ipynb
+[I 16:11:50.465 NotebookApp] Uploading file to /train_gru-d.ipynb
+[E 16:11:50.476 NotebookApp] Error while saving file: train_gru-d.ipynb [Errno 2] No such file or directory: '/scratch/sb3923/time_series/train_gru-d.ipynb'
+    Traceback (most recent call last):
+      File "/share/apps/python3/3.5.3/intel/lib/python3.5/site-packages/notebook/services/contents/filemanager.py", line 396, in save
+        self._save_notebook(os_path, nb)
+      File "/share/apps/python3/3.5.3/intel/lib/python3.5/site-packages/notebook/services/contents/fileio.py", line 254, in _save_notebook
+        with self.atomic_writing(os_path, encoding='utf-8') as f:
+      File "/share/apps/python3/3.5.3/intel/lib/python3.5/contextlib.py", line 59, in __enter__
+        return next(self.gen)
+      File "/share/apps/python3/3.5.3/intel/lib/python3.5/site-packages/notebook/services/contents/fileio.py", line 188, in atomic_writing
+        with atomic_writing(os_path, *args, log=self.log, **kwargs) as f:
+      File "/share/apps/python3/3.5.3/intel/lib/python3.5/contextlib.py", line 59, in __enter__
+        return next(self.gen)
+      File "/share/apps/python3/3.5.3/intel/lib/python3.5/site-packages/notebook/services/contents/fileio.py", line 80, in atomic_writing
+        fileobj = io.open(path, 'w', encoding=encoding, **kwargs)
+    FileNotFoundError: [Errno 2] No such file or directory: '/scratch/sb3923/time_series/train_gru-d.ipynb'
+[W 16:11:50.478 NotebookApp] Unexpected error while saving file: train_gru-d.ipynb [Errno 2] No such file or directory: '/scratch/sb3923/time_series/train_gru-d.ipynb'
+[E 16:11:50.478 NotebookApp] {
+      "Accept-Encoding": "gzip, deflate, br",
+      "Sec-Fetch-Site": "same-origin",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+      "Content-Length": "772665",
+      "Origin": "http://localhost:7594",
+      "Accept-Language": "en-US,en;q=0.9,tr;q=0.8",
+      "Referer": "http://localhost:7594/notebooks/train_gru-d.ipynb",
+      "X-Requested-With": "XMLHttpRequest",
+      "X-Xsrftoken": "2|434b8f55|b5d2e8acdde9e9328f2849f73c40b215|1572824339",
+      "Sec-Fetch-Mode": "cors",
+      "Connection": "keep-alive",
+      "Accept": "application/json, text/javascript, */*; q=0.01",
+      "Cookie": "_xsrf=2|434b8f55|b5d2e8acdde9e9328f2849f73c40b215|1572824339; username-localhost-9974=\"2|1:0|10:1572919431|23:username-localhost-9974|44:ZDIzYmEzMjU0NWI5NDQ1NWFiYzc5YzY2NzU2MjYyOGE=|39cc0ce1dd5dee3134764c685edbc0acc95b4875c07d8d41c72c8aee1c775439\"; username-localhost-8816=\"2|1:0|10:1573006137|23:username-localhost-8816|44:MWU2ODM3NmNlODk0NDVhN2E2ZDg4YTFiOGY2YzQ5NTY=|49a56727dd009ea0461d57fe5a26f36c8d382f49a6c6e54d702e0be03cdf56a8\"; username-localhost-8203=\"2|1:0|10:1573057995|23:username-localhost-8203|44:NWI1YmEyOWY1NDFlNDc1ODhiZDRhNTFlNmI0MTY0MDQ=|4cb8f9da02a4bec4dcef94c28ac5c9320e4e8a8712465f1084a4ca79f625e107\"; username-localhost-7200=\"2|1:0|10:1573071472|23:username-localhost-7200|44:NTBhZDYwMmRhMTEwNGQ2OTg3MGQ5YjhhNjcwMjQwMDI=|372e8d893ccd1eeaa4e117a5b1f605d2d29cd5946bb0875936886c82fef5c8ab\"; username-localhost-9423=\"2|1:0|10:1573141469|23:username-localhost-9423|44:ZWI5NTNiMjQ3NzlkNDlkZTliZmJiN2Y5ZTllYzFiNzQ=|cdb409998d6a930d848e42a8afbde064378538e1f51c85f108f11f5d927b62b4\"; username-localhost-6301=\"2|1:0|10:1573247428|23:username-localhost-6301|44:YjQwMTU4OTRlYWEwNGFmMThlM2ZmYzk0MzEwOTc1MDM=|ead6fa82a2b29d788624fee85d6fa2bea9e7b6b402f0279956e9640d3ef40555\"; username-localhost-8890=\"2|1:0|10:1573442661|23:username-localhost-8890|44:ZmMxNDcwMDMzOWQwNGZkMTk3MjUxNmMxZjQ0MjgzMTA=|ee208e85071dc29bfa478957b994621da89126542f8c15bf5adb5f5e7e87b820\"; username-localhost-6363=\"2|1:0|10:1573587567|23:username-localhost-6363|44:YjM3ZWU3Mzg2YWE3NGVhNGE3NWY1MGY4MDc0OWY1Mjc=|05bcc42867c335579537eb7c7fe96729cb0caadbe24e1bafe17fa881ed92b80a\"; username-localhost-8528=\"2|1:0|10:1574045650|23:username-localhost-8528|44:ZTZiZmM3ZTljODNmNGE5Njg0MzkwMDJiOWFmMjUzODQ=|023ac223df19e82dbc4a709b2ce7a6b2ad5bdedb5048b1cf6fd5c8c7ca21988c\"; username-localhost-8408=\"2|1:0|10:1574092542|23:username-localhost-8408|44:Y2JmNDIwMjBlMDI3NDBlN2FlZWE3YTk4NGI1ZjlmYmU=|38ee45d23b639bb992573a201ebb092db683ffba8701fa5027d2bf6ea6665189\"; username-localhost-9227=\"2|1:0|10:1574280238|23:username-localhost-9227|44:NThhNTI2NzA4NDIzNDk2YWFmMTVhMjkyMzdkYzgwNjc=|0c1d6799a86019b7d3c44513cb97cccb2c4fabbbb0c685e4d868dfb2390ca6dd\"; username-localhost-8630=\"2|1:0|10:1574303357|23:username-localhost-8630|44:YWRhMzQ4MWY4NTJmNDZiOGFkNTAzOTBmYjNhODU0MWE=|c260e41fc84ef0314b8a79e079023aae0791e8e44753c3652433ba37e124ac54\"; username-localhost-8489=\"2|1:0|10:1574378506|23:username-localhost-8489|44:ZjhiMDllZDkxNTdjNDRhMWE1MzZlZWMzNmVlOGEyZGE=|5075054c7236c8760e657cb4ee6c1c452554a207a19c99ce2506fdb258005f2b\"; username-localhost-8801=\"2|1:0|10:1574526274|23:username-localhost-8801|44:YTcyYTBkMjEyYTYxNDZlNjkzYmZhY2Q2MzFjZjgxMWI=|65c4108e1df07c552c198a7f63d668890237b59af21a2224ebf6341697e3968d\"; username-localhost-9484=\"2|1:0|10:1574636590|23:username-localhost-9484|44:NWQyMDE3NjcyYWZkNDMxYzhiZWIzMWRmOWM2MGQyNDE=|cb372168a0b309f21e0d4cfe31cd49901ae7672be27f5f4f8d8dc0c37f548d91\"; username-localhost-9581=\"2|1:0|10:1574644196|23:username-localhost-9581|44:YmFjNWE5M2EwMDQzNGVhYjk3MWZmYTFhNjRlZTA1YzI=|2b9872694c87f4c0cf2c5aa4117dfa43adcce81d33fad5224f25b2ab2fb1ad0b\"; username-localhost-8889=\"2|1:0|10:1574795944|23:username-localhost-8889|44:ZDQ5NTliNmNmYzQ5NDc3YzgwOTRiMWVhYmNlMjY1YWY=|92ee1cbe15b0933922644dc4a01eb6e8dbcc330a754e5464be5de5cacc7b4bcf\"; username-localhost-8712=\"2|1:0|10:1574813748|23:username-localhost-8712|44:NDdlYTE0YmNiOTBhNDE1OGJlNmJlNjk5NTczYTA1MmI=|c80ed0df78f4037bdbc5d520c7ae8bb2cf8727be5a35d271df810b80242993c0\"; username-localhost-8941=\"2|1:0|10:1574816572|23:username-localhost-8941|44:Yzk4MWM5Mzk3MTNhNDJlMmI1ODJkZTRhYzJiMGQ2NGI=|f5af72bb76b94edae5240640cb14eb2d0a62e9de2c8d12ed7c2c939709396f7d\"; username-localhost-9919=\"2|1:0|10:1574868089|23:username-localhost-9919|44:M2MzMGJmNDEwY2ZjNDFlN2JjMjM2MjM3NTQ4MjdhMDM=|ade5d9a08e525fcf60ea72cec4b909146cd77deaa37db68c78d7f5569852f799\"; username-localhost-8585=\"2|1:0|10:1574970723|23:username-localhost-8585|44:MTc0YWYyOThhZGQ4NDNiNTg0MjdmNzgyOTljNGExMWY=|f76e7af346ce463643333d428f51a909da7de2ba4746092db008cbeb6776bb52\"; username-localhost-6642=\"2|1:0|10:1574985764|23:username-localhost-6642|44:MjFhYjU4YmU2MWRjNGZhNmI3OGNhM2I2NGUwMDAwZjM=|2fb40f3d7938ef5f69717a20010f8807b3099a34f43a1593583b051b17a29fc3\"; username-localhost-9446=\"2|1:0|10:1574992938|23:username-localhost-9446|44:NGUwMzQ0MTQ4MjQ4NGEzNDkxNGY0MWFiOGViYjc1MTU=|039093429cb6d4b226b5c70da2551c0b38265d99eadb020601d19b47a692bebe\"; username-localhost-7147=\"2|1:0|10:1575049963|23:username-localhost-7147|44:OTJiMTE1OWU0ZDAxNGUyNjgxZDg4MDRjN2JhYzE3ZmY=|0b14b03086683ea63b05d9e9fcf651e2aceee5f878507f4e2b437ef6cb198854\"; username-localhost-8550=\"2|1:0|10:1575051326|23:username-localhost-8550|44:NWQ3Y2ZjZjMzNjAzNDk5NzkzMWQyNGQ0NTlhYjk3ODA=|780e92799ba6167907b93cc1539c6df9169904f0d6b383d7be793a693526dd3a\"; username-localhost-8542=\"2|1:0|10:1575070386|23:username-localhost-8542|44:NDhlODBhNzZlYTIzNDEwODg0NWVmMTBiMzdiZmI5OGY=|b54d984a5fe1259fba87d6eb892f3a042f18268faf67728d97cc3e11735802a7\"; username-localhost-7315=\"2|1:0|10:1575084029|23:username-localhost-7315|44:ZjYwYjI4ZTdkOWQ0NDNhMmJkYzRlOWVhMDRhYjg2OTI=|8171bfbaba5a4186146e44efbdb852aa50febc691e0f991cf005a5bbc3226b1f\"; username-localhost-8888=\"2|1:0|10:1575229772|23:username-localhost-8888|44:YTM5YzBjMzM0NDk2NDFkNzljMzllMWQ1OGY3Mzc3MWQ=|becb994b9e3e47812f1f2fd382a2fcb8bf3145df15d3c904e1ebdbab5d237ee9\"; username-localhost-6469=\"2|1:0|10:1575236605|23:username-localhost-6469|44:MDE5ZGZjOWI2NGVmNDEyNTkyMWM3NGM4NWEwZTdhODI=|1e7824bb235e464f6e3c18231a286132e4e40bc016b6794ae2e1c3441fb12325\"; username-localhost-7138=\"2|1:0|10:1575241104|23:username-localhost-7138|44:NGQzY2E0MThjZTUwNGEyYWJmOGExMDE3ZWM4YjM2Y2Q=|e53c67592b3b92412ecfee0fd8f5e93666e7c2a4a09b4c718495bd0ffff1bb58\"; username-localhost-8164=\"2|1:0|10:1575251097|23:username-localhost-8164|44:NWUwN2U2NTI1MDkyNGVkNmJkMzU1NDNhNmM4NDczMjg=|234ff9ac2028d3d18259e36f9c37b490e1d08577e8c1570ffeaa8e75cf375019\"; username-localhost-7594=\"2|1:0|10:1575320979|23:username-localhost-7594|44:MDVlNjgyNDBiNjRhNGQwN2I4N2NmOTQyYmQ2YTY0ZWE=|665f3a4b9288850a0c66bebc53621786612a994d4053566a39a05de93da56e0e\"",
+      "Host": "localhost:7594",
+      "Content-Type": "application/json"
+    }
+[E 16:11:50.478 NotebookApp] 500 PUT /api/contents/train_gru-d.ipynb (::1) 162.19ms referer=http://localhost:7594/notebooks/train_gru-d.ipynb
+slurmstepd: error: *** JOB 5941784 ON gpu-02 CANCELLED AT 2019-12-02T16:12:08 ***

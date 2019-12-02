@@ -1,0 +1,3 @@
+/opt/slurm/data/slurmd/job5836240/slurm_script: line 34: 264423 Killed                  python3 -u /scratch/sb3923/time_series/pre-process.py
+slurmstepd: error: The SLURM utilizes Linux cgroups for resource containment. For reference please read the explanation in the bug report: https://bugs.schedmd.com/show_bug.cgi?id=3214#c4
+slurmstepd: error: Detected 1 oom-kill event(s) in step 5836240.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
