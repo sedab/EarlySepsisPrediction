@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/scratch/sb3923/time_series/EarlySepsisPrediction/RNN-missingval/train.py", line 418, in <module>
+    torch.save(test_outputs.state_dict(), '/scratch/sb3923/time_series/EarlySepsisPrediction/RNN-missingval/checkpoints/'+experiment+'_test_outputs.pth')
+AttributeError: 'list' object has no attribute 'state_dict'

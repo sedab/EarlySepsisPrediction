@@ -18,4 +18,7 @@ module load pytorch/python3.5/0.2.0_3
 module load torchvision/python3.5/0.1.9
 
 
-python3 -u /scratch/sb3923/time_series/EarlySepsisPrediction/RNN-missingval/train.py
+#python3 -u /scratch/sb3923/time_series/EarlySepsisPrediction/RNN-missingval/train.py --experiment 'seq12_mask' --seqlen 12 --predlen 6 --mask 
+#python3 -u /scratch/sb3923/time_series/EarlySepsisPrediction/RNN-missingval/train.py --experiment 'seq12_no_mask' --seqlen 12 --predlen 6  
+#python3 -u /scratch/sb3923/time_series/EarlySepsisPrediction/RNN-missingval/train.py --experiment 'seq18_mask' --seqlen 18 --predlen 6 --mask 
+python3 -u /scratch/sb3923/time_series/EarlySepsisPrediction/RNN-missingval/train.py --experiment 'seq18_no_mask' --seqlen 18 --predlen 6 

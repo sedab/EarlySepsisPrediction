@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/scratch/sb3923/time_series/EarlySepsisPrediction/RNN-missingval/train.py", line 425, in <module>
+    [batch_size, type_size, step_size, fea_size] = inputs.size()
+ValueError: not enough values to unpack (expected 4, got 3)

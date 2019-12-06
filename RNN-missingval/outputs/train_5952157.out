@@ -1,0 +1,101 @@
+Split Speed finished. Start to generate Mask, Delta, Last_observed_X ...
+Generate Mask, Delta, Last_observed_X finished. Start to shuffle and split dataset ...
+Finished
+Model Structure:  GRUD (
+  (fc): Linear (38 -> 1)
+  (sigmoid): Sigmoid ()
+  (zl): Linear (114 -> 38)
+  (rl): Linear (114 -> 38)
+  (hl): Linear (114 -> 38)
+  (gamma_x_l): FilterLinear(in_features=38, out_features=38, bias=True)
+  (gamma_h_l): Linear (38 -> 38)
+)
+Start Training ... 
+Output type dermined by the model
+Epoch: 0, train_loss: [ 0.44984099], valid_loss: [ 0.44428235], time: [ 3.32], best model: 1
+Epoch: 1, train_loss: [ 0.21701904], valid_loss: [ 0.21824379], time: [ 2.72], best model: 1
+Epoch: 2, train_loss: [ 0.1463287], valid_loss: [ 0.1473867], time: [ 2.71], best model: 1
+Epoch: 3, train_loss: [ 0.11833416], valid_loss: [ 0.119587], time: [ 2.75], best model: 1
+Epoch: 4, train_loss: [ 0.10410645], valid_loss: [ 0.10579266], time: [ 2.71], best model: 1
+Epoch: 5, train_loss: [ 0.09377901], valid_loss: [ 0.09971121], time: [ 2.73], best model: 1
+Epoch: 6, train_loss: [ 0.09031225], valid_loss: [ 0.09440157], time: [ 2.74], best model: 1
+Epoch: 7, train_loss: [ 0.08657596], valid_loss: [ 0.09291539], time: [ 2.7], best model: 1
+Epoch: 8, train_loss: [ 0.08158539], valid_loss: [ 0.08594887], time: [ 2.73], best model: 1
+Epoch: 9, train_loss: [ 0.08172218], valid_loss: [ 0.08845266], time: [ 2.71], best model: 0
+Epoch: 10, train_loss: [ 0.08022196], valid_loss: [ 0.0868837], time: [ 2.72], best model: 0
+Epoch: 11, train_loss: [ 0.0790226], valid_loss: [ 0.08577106], time: [ 2.7], best model: 1
+Epoch: 12, train_loss: [ 0.07807119], valid_loss: [ 0.07750679], time: [ 2.71], best model: 1
+Epoch: 13, train_loss: [ 0.07728184], valid_loss: [ 0.07915656], time: [ 2.72], best model: 0
+Epoch: 14, train_loss: [ 0.07661892], valid_loss: [ 0.08322487], time: [ 2.69], best model: 0
+Epoch: 15, train_loss: [ 0.07603646], valid_loss: [ 0.0751206], time: [ 2.74], best model: 1
+Epoch: 16, train_loss: [ 0.07543882], valid_loss: [ 0.08427741], time: [ 2.7], best model: 0
+Epoch: 17, train_loss: [ 0.07480656], valid_loss: [ 0.08097154], time: [ 2.7], best model: 0
+Epoch: 18, train_loss: [ 0.07147976], valid_loss: [ 0.07739208], time: [ 2.73], best model: 0
+Epoch: 19, train_loss: [ 0.07328794], valid_loss: [ 0.07379548], time: [ 2.71], best model: 1
+Epoch: 20, train_loss: [ 0.07230828], valid_loss: [ 0.07949998], time: [ 2.73], best model: 0
+Epoch: 21, train_loss: [ 0.07099354], valid_loss: [ 0.06860041], time: [ 2.71], best model: 1
+Epoch: 22, train_loss: [ 0.06932251], valid_loss: [ 0.06839158], time: [ 2.7], best model: 1
+Epoch: 23, train_loss: [ 0.06720361], valid_loss: [ 0.0690098], time: [ 2.72], best model: 0
+Epoch: 24, train_loss: [ 0.06461098], valid_loss: [ 0.06543084], time: [ 2.74], best model: 1
+Epoch: 25, train_loss: [ 0.0599179], valid_loss: [ 0.05927442], time: [ 2.73], best model: 1
+Epoch: 26, train_loss: [ 0.05784714], valid_loss: [ 0.05727176], time: [ 2.71], best model: 1
+Epoch: 27, train_loss: [ 0.05338134], valid_loss: [ 0.04599964], time: [ 2.71], best model: 1
+Epoch: 28, train_loss: [ 0.04849536], valid_loss: [ 0.04093972], time: [ 2.73], best model: 1
+Epoch: 29, train_loss: [ 0.04393514], valid_loss: [ 0.03347912], time: [ 2.71], best model: 1
+Epoch: 30, train_loss: [ 0.039766], valid_loss: [ 0.02726166], time: [ 2.73], best model: 1
+Epoch: 31, train_loss: [ 0.03718986], valid_loss: [ 0.02257515], time: [ 2.71], best model: 1
+Epoch: 32, train_loss: [ 0.03488768], valid_loss: [ 0.01972752], time: [ 2.73], best model: 1
+Epoch: 33, train_loss: [ 0.03075348], valid_loss: [ 0.01621668], time: [ 2.73], best model: 1
+Epoch: 34, train_loss: [ 0.03178068], valid_loss: [ 0.01555313], time: [ 2.71], best model: 1
+Epoch: 35, train_loss: [ 0.03056867], valid_loss: [ 0.01425007], time: [ 2.71], best model: 1
+Epoch: 36, train_loss: [ 0.02927659], valid_loss: [ 0.01427808], time: [ 2.73], best model: 0
+Epoch: 37, train_loss: [ 0.02785754], valid_loss: [ 0.01343544], time: [ 2.71], best model: 1
+Epoch: 38, train_loss: [ 0.0264123], valid_loss: [ 0.0128823], time: [ 2.73], best model: 1
+Epoch: 39, train_loss: [ 0.02476302], valid_loss: [ 0.01445049], time: [ 2.71], best model: 0
+Epoch: 40, train_loss: [ 0.02276276], valid_loss: [ 0.01142844], time: [ 2.71], best model: 1
+Epoch: 41, train_loss: [ 0.02132296], valid_loss: [ 0.01389091], time: [ 2.75], best model: 0
+Epoch: 42, train_loss: [ 0.02019255], valid_loss: [ 0.01107987], time: [ 2.82], best model: 1
+Epoch: 43, train_loss: [ 0.0188163], valid_loss: [ 0.01044675], time: [ 2.72], best model: 1
+Epoch: 44, train_loss: [ 0.01735231], valid_loss: [ 0.00977077], time: [ 2.7], best model: 1
+Epoch: 45, train_loss: [ 0.01689377], valid_loss: [ 0.00842318], time: [ 2.71], best model: 1
+Epoch: 46, train_loss: [ 0.01594347], valid_loss: [ 0.00846161], time: [ 2.73], best model: 0
+Epoch: 47, train_loss: [ 0.01452116], valid_loss: [ 0.00658954], time: [ 2.71], best model: 1
+Epoch: 48, train_loss: [ 0.01365986], valid_loss: [ 0.00823277], time: [ 2.73], best model: 0
+Epoch: 49, train_loss: [ 0.0140247], valid_loss: [ 0.00602734], time: [ 2.7], best model: 1
+Epoch: 50, train_loss: [ 0.01310607], valid_loss: [ 0.00613092], time: [ 2.74], best model: 0
+Epoch: 51, train_loss: [ 0.01263304], valid_loss: [ 0.00579534], time: [ 2.73], best model: 1
+Epoch: 52, train_loss: [ 0.01211732], valid_loss: [ 0.005421], time: [ 2.71], best model: 1
+Epoch: 53, train_loss: [ 0.01176071], valid_loss: [ 0.00536726], time: [ 2.73], best model: 1
+Epoch: 54, train_loss: [ 0.01076869], valid_loss: [ 0.00478931], time: [ 2.72], best model: 1
+Epoch: 55, train_loss: [ 0.01064492], valid_loss: [ 0.00439638], time: [ 2.72], best model: 1
+Epoch: 56, train_loss: [ 0.01000719], valid_loss: [ 0.00426361], time: [ 2.76], best model: 1
+Epoch: 57, train_loss: [ 0.00950826], valid_loss: [ 0.00411086], time: [ 2.73], best model: 1
+Epoch: 58, train_loss: [ 0.00900251], valid_loss: [ 0.0038013], time: [ 2.77], best model: 1
+Epoch: 59, train_loss: [ 0.0081667], valid_loss: [ 0.00333268], time: [ 2.75], best model: 1
+Epoch: 60, train_loss: [ 0.00797356], valid_loss: [ 0.00325077], time: [ 2.71], best model: 1
+Epoch: 61, train_loss: [ 0.00815009], valid_loss: [ 0.00292827], time: [ 2.73], best model: 1
+Epoch: 62, train_loss: [ 0.00768852], valid_loss: [ 0.00270471], time: [ 2.71], best model: 1
+Epoch: 63, train_loss: [ 0.00760957], valid_loss: [ 0.00264794], time: [ 2.74], best model: 1
+Epoch: 64, train_loss: [ 0.00733937], valid_loss: [ 0.0024361], time: [ 2.71], best model: 1
+Epoch: 65, train_loss: [ 0.00713896], valid_loss: [ 0.00251393], time: [ 2.72], best model: 0
+Epoch: 66, train_loss: [ 0.00714242], valid_loss: [ 0.00244118], time: [ 2.73], best model: 0
+Epoch: 67, train_loss: [ 0.00688658], valid_loss: [ 0.0023485], time: [ 2.74], best model: 1
+Epoch: 68, train_loss: [ 0.00671724], valid_loss: [ 0.00219042], time: [ 2.71], best model: 1
+Epoch: 69, train_loss: [ 0.00658892], valid_loss: [ 0.00238876], time: [ 2.73], best model: 0
+Epoch: 70, train_loss: [ 0.00636703], valid_loss: [ 0.0021787], time: [ 2.71], best model: 1
+Epoch: 71, train_loss: [ 0.00636258], valid_loss: [ 0.00204102], time: [ 2.73], best model: 1
+Epoch: 72, train_loss: [ 0.00618314], valid_loss: [ 0.00217302], time: [ 2.71], best model: 0
+Epoch: 73, train_loss: [ 0.00580477], valid_loss: [ 0.00227041], time: [ 2.71], best model: 0
+Epoch: 74, train_loss: [ 0.00608534], valid_loss: [ 0.00167239], time: [ 2.74], best model: 1
+Epoch: 75, train_loss: [ 0.00580731], valid_loss: [ 0.00190218], time: [ 2.73], best model: 0
+Epoch: 76, train_loss: [ 0.00538881], valid_loss: [ 0.00158825], time: [ 2.74], best model: 1
+Epoch: 77, train_loss: [ 0.00563556], valid_loss: [ 0.00197438], time: [ 2.71], best model: 0
+Epoch: 78, train_loss: [ 0.00538173], valid_loss: [ 0.00182717], time: [ 2.71], best model: 0
+Epoch: 79, train_loss: [ 0.00536946], valid_loss: [ 0.00180013], time: [ 2.75], best model: 0
+Epoch: 80, train_loss: [ 0.00518667], valid_loss: [ 0.00159044], time: [ 2.72], best model: 0
+Epoch: 81, train_loss: [ 0.00519971], valid_loss: [ 0.00181164], time: [ 2.74], best model: 0
+Epoch: 82, train_loss: [ 0.00491766], valid_loss: [ 0.00206801], time: [ 2.71], best model: 0
+Epoch: 83, train_loss: [ 0.00486882], valid_loss: [ 0.00194319], time: [ 2.72], best model: 0
+Epoch: 84, train_loss: [ 0.00485367], valid_loss: [ 0.00189561], time: [ 2.76], best model: 0
+Epoch: 85, train_loss: [ 0.00461658], valid_loss: [ 0.00189979], time: [ 2.71], best model: 0
+Early Stopped at Epoch: 86

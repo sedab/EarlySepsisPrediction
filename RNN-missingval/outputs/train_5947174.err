@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/scratch/sb3923/time_series/EarlySepsisPrediction/RNN-missingval/train.py", line 411, in <module>
+    torch.save(best_grud.state_dict(), '/scratch/sb3923/time_series/EarlySepsisPrediction/RNN-missingval/checkpoints/{1}_best_grud.pth'.format(opt.experiment))
+IndexError: tuple index out of range

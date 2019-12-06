@@ -19,32 +19,47 @@ import torch.utils.data as utils
 import itertools
 from pandas.core.common import flatten
 
+import argparse
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--experiment', default='', help="name of experiment to test")
+parser.add_argument('--seqlen'  , type=int, default=12, help='sequence length')
+parser.add_argument('--predlen'  , type=int, default=6, help='prediction length')
+parser.add_argument('--mask', action='store_true', help='trigger early stopping (boolean)')
+
+opt = parser.parse_args()
+
+print(opt)
+
+experiment = str(opt.experiment)
+seq_len_ = int(opt.seqlen)
+pred_len_ = int(opt.predlen)
+
+
 #####################################################
 #get the data
-filename = '/scratch/sb3923/time_series/data/data_proc.pickle'
+filename = '/scratch/sb3923/time_series/data/raw_data.pickle'
 with open(filename, 'rb') as f:
     all_df = pickle.load(f)
     
 
 all_df=all_df.drop(['EtCO2'],axis=1)
-all_df['pat_id']=all_df['pat_id'].astype(int)
-all_df['hour']=all_df['hour']+1
+all_df['patient_id']=all_df['patient_id'].astype(int)
 
-#need to normalize the data (except the binary)
-#drop the binary
-all_df=all_df.drop(['Gender'],axis=1)
-all_df=all_df.drop(['Unit1'],axis=1)
-all_df=all_df.drop(['Unit2'],axis=1)
 
-#normalize the data
+#modify the binary, so it wont be registered as nan while masking
+all_df.loc[all_df['Gender']==0,'Gender']=2
+all_df.loc[all_df['Unit1']==0,'Unit1']=2
+all_df.loc[all_df['Unit2']==0,'Unit2']=2
 
+
+#normalize each column
 for c in all_df.columns:
-    all_df[c]=all_df[c]/(all_df[c].max())
-        
-    
+    all_df[c] = (all_df[c]-np.nanmin(all_df[c]))/(np.nanmax(all_df[c])-np.nanmin(all_df[c]))
+
+#fill the missing data
 all_df = all_df.fillna(0)
-#to do: drop zero row and below go from 0 to length of the given patient
-all_df = all_df.loc[~(all_df.drop(['hour','pat_id'],axis=1)==0).all(axis=1)]
 
 #####################################################
 
@@ -52,11 +67,11 @@ all_df = all_df.loc[~(all_df.drop(['hour','pat_id'],axis=1)==0).all(axis=1)]
 
 def PrepareDataset(data, \
                    BATCH_SIZE = 64, \
-                   seq_len = 12, \
-                   pred_len = 1, \
+                   seq_len = seq_len_, \
+                   pred_len = pred_len_, \
                    train_propotion = 0.7, \
-                   valid_propotion = 0.2, \
-                   masking = False, \
+                   valid_propotion = 0.15, \
+                   masking = True, \
                    mask_ones_proportion = 0.8):
     """ Prepare training and testing datasets and dataloaders.
     
@@ -78,20 +93,19 @@ def PrepareDataset(data, \
     max_data = data.max().max()
     #speed_matrix =  speed_matrix / max_speed
     
-    data_sequences, data_labels = [], []
-    for p in data['pat_id'].unique():
-        pat_len = len(data[data['pat_id']==p])
+    data_sequences, data_labels, data_pats = [], [], []
+    for p in data['patient_id'].unique():
+        pat_len = len(data[data['patient_id']==p])
         if (pat_len>(seq_len+pred_len)):
         #for i in range(time_len - seq_len - pred_len):
             for i in range(pat_len - seq_len - pred_len):
-                data_sequences.append(data.drop(['SepsisLabel'], axis=1)[data['pat_id']==p].iloc[i:i+seq_len].values)
-                data_labels.append(data['SepsisLabel'][data['pat_id']==p].iloc[i+seq_len:i+seq_len+pred_len].values)
-                #data_labels.append(data.drop(['SepsisLabel'], axis=1)[data['pat_id']==p].iloc[i+seq_len:i+seq_len+pred_len].values)
-                #data_sequences.append(data[data['pat_id']==p].iloc[i:i+seq_len].values)
-                #data_labels.append(data[data['pat_id']==p].iloc[i+seq_len:i+seq_len+pred_len].values)
-
+                data_sequences.append(data.drop(['SepsisLabel'], axis=1)[data['patient_id']==p].iloc[i:i+seq_len].values)
+                #data_labels.append(data['SepsisLabel'][data['pat_id']==p].iloc[i+seq_len:i+seq_len+pred_len].values)
+                data_labels.append(data['SepsisLabel'][data['patient_id']==p].iloc[i+seq_len+pred_len:i+seq_len+pred_len+1].values)
+                data_pats.append(p)
+                
     #print(i)
-    data_sequences, data_labels = np.asarray(data_sequences), np.asarray(data_labels)
+    data_sequences, data_labels, data_pats = np.asarray(data_sequences), np.asarray(data_labels), np.asarray(data_pats)
     #print(data_sequences.shape)
     #(951, 48, 42)
     if masking:
@@ -100,8 +114,10 @@ def PrepareDataset(data, \
         #Mask = np.random.choice([0,1], size=(data_sequences.shape), p = [1 - mask_ones_proportion, mask_ones_proportion])
         #speed_sequences = np.multiply(speed_sequences, Mask)
         Mask = data_sequences
-        Mask[Mask!=0]=1
-        
+        if opt.mask:
+            Mask[Mask!=0]=1
+        else:
+            Mask[Mask!=0]=0
         
         # temporal information
         interval = 1 # 5 minutes
@@ -131,16 +147,35 @@ def PrepareDataset(data, \
     
     # shuffle and split the dataset to training and testing datasets
     print('Generate Mask, Delta, Last_observed_X finished. Start to shuffle and split dataset ...')
-    sample_size = data_sequences.shape[0]/48
-    index_ = np.arange(sample_size, dtype = int)
+    sample_size = data_sequences.shape[0]
+    index = np.arange(sample_size, dtype = int)
     np.random.seed(1024)
-    np.random.shuffle(index_)
+    np.random.shuffle(index)
     
-    index=[]
-    for i in index_:
-        index.append(list(range(i,i+48)))
-     
-    index=list(flatten(index))
+    #patients = data['pat_id'].unique():
+    #pat_sample_size=len(patients)
+    #first split patients
+    #train_pat_index = int(np.floor(pat_sample_size * train_propotion))
+    #valid_pat_index = int(np.floor(pat_sample_size * ( train_propotion + valid_propotion)))
+    
+    #patients[:train_pat_index]
+    #patients[train_pat_index:valid_pat_index]
+    #patients[valid_pat_index:]
+    
+    #train_index=[]
+    #for p in patients[:train_pat_index]:
+        #item= np.where(data_pats==p)
+        #train_index.append(item)
+        
+    #valid_index=[]
+    #for p in patients[train_pat_index:valid_pat_index]:
+        #item= np.where(data_pats==p)
+        #valid_index.append(item)
+    
+    #test_index=[]
+    #for p in patients[valid_pat_index:]:
+        #item= np.where(data_pats==p)
+        #test_index.append(item)
     
        
     data_sequences = data_sequences[index]
@@ -186,12 +221,6 @@ def PrepareDataset(data, \
     print('Finished')
     
     return train_dataloader, valid_dataloader, test_dataloader, max_data, X_mean
-
-
-
-
-
-
 
 
 
@@ -340,6 +369,47 @@ def Train_Model(model, train_dataloader, valid_dataloader, num_epochs = 300, pat
     return best_model, [losses_train, losses_valid, losses_epochs_train, losses_epochs_valid]
 
 
+def Test_Model(model, test_dataloader, max_speed):
+    
+    if (type(model) == nn.modules.container.Sequential):
+        output_last = model[-1].output_last
+    else:
+        output_last = model.output_last
+    
+    inputs, labels = next(iter(test_dataloader))
+    [batch_size, type_size, step_size, fea_size] = inputs.size()
+
+    cur_time = time.time()
+    pre_time = time.time()
+    
+    use_gpu = torch.cuda.is_available()
+    
+    tested_batch = 0
+    
+    all_outputs = []
+    all_labels = [] 
+
+    
+    for data in test_dataloader:
+        inputs, labels = data
+        
+        if inputs.shape[0] != batch_size:
+            continue
+    
+        if use_gpu:
+            inputs, labels = Variable(inputs.cuda()), Variable(labels.cuda())
+        else: 
+            inputs, labels = Variable(inputs), Variable(labels)
+        
+        outputs = model(inputs)
+        
+        all_outputs.append(outputs.cpu().data)
+        all_labels.append(labels.cpu().data)
+    
+    return [all_outputs, all_labels]
+
+
+
 
 #main
 
@@ -347,7 +417,7 @@ from GRUD import *
 
 
 train_dataloader, valid_dataloader, test_dataloader, max_dat, X_mean = PrepareDataset(all_df, BATCH_SIZE = 32, masking = True)
-
+#train_dataloader, valid_dataloader, test_dataloader, max_dat, X_mean = PrepareDataset(all_df, BATCH_SIZE = 32, masking = False)
 
 inputs, labels = next(iter(train_dataloader))
 
@@ -361,11 +431,15 @@ grud = GRUD(input_dim, hidden_dim, output_dim, X_mean, output_last = True)
 best_grud, losses_grud = Train_Model(grud, train_dataloader, valid_dataloader)
 
 
-torch.save(best_grud.state_dict(), '/scratch/sb3923/time_series/EarlySepsisPrediction/RNN-missingval/checkpoints/best_grud.pth')
+torch.save(best_grud.state_dict(), '/scratch/sb3923/time_series/EarlySepsisPrediction/RNN-missingval/checkpoints/'+experiment+'_best_grud.pt')
 
-torch.save(losses_grud, "/scratch/sb3923/time_series/EarlySepsisPrediction/RNN-missingval/checkpoints/losses_grud.pt")
+torch.save(losses_grud, '/scratch/sb3923/time_series/EarlySepsisPrediction/RNN-missingval/checkpoints/'+experiment+'_losses_grud.pt')
 
 
+[test_outputs,test_labels] = Test_Model(best_grud, test_dataloader, max_dat)
 
+torch.save(test_outputs, '/scratch/sb3923/time_series/EarlySepsisPrediction/RNN-missingval/checkpoints/'+experiment+'_test_outputs.pt')
+
+torch.save(test_labels, '/scratch/sb3923/time_series/EarlySepsisPrediction/RNN-missingval/checkpoints/'+experiment+'_test_labels.pt')
 
 

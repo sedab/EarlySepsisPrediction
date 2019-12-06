@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/scratch/sb3923/time_series/EarlySepsisPrediction/RNN-missingval/train.py", line 405, in <module>
+    
+  File "/scratch/sb3923/time_series/EarlySepsisPrediction/RNN-missingval/train.py", line 150, in PrepareDataset
+    print('Generate Mask, Delta, Last_observed_X finished. Start to shuffle and split dataset ...')
+NameError: name 'speed_sequences' is not defined
