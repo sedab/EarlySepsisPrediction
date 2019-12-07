@@ -64,7 +64,6 @@ all_df = all_df.fillna(0)
 #####################################################
 
 
-
 def PrepareDataset(data, \
                    BATCH_SIZE = 64, \
                    seq_len = seq_len_, \
@@ -415,6 +414,7 @@ def Test_Model(model, test_dataloader, max_speed):
 
 from GRUD import * 
 
+print('preparing the data loader')
 
 train_dataloader, valid_dataloader, test_dataloader, max_dat, X_mean = PrepareDataset(all_df, BATCH_SIZE = 32, masking = True)
 #train_dataloader, valid_dataloader, test_dataloader, max_dat, X_mean = PrepareDataset(all_df, BATCH_SIZE = 32, masking = False)
@@ -426,8 +426,10 @@ inputs, labels = next(iter(train_dataloader))
 input_dim = fea_size
 hidden_dim = fea_size
 output_dim = fea_size
-    
+
+print('next running the model')    
 grud = GRUD(input_dim, hidden_dim, output_dim, X_mean, output_last = True)
+
 best_grud, losses_grud = Train_Model(grud, train_dataloader, valid_dataloader)
 
 

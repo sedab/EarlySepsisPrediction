@@ -1,0 +1,1 @@
+Namespace(experiment='seq12_no_mask', mask=False, predlen=0, seqlen=12)
