@@ -5,5 +5,3 @@ Strategies to impute missing values <br>
 drop *Unit1*, *Unit2* features
 * LDS (`missing_vals_LDS.ipynb`): interpolation for vital signal data;
 run LDS twice on each patient to fill missing lab test data; drop *Unit1*, *Unit2* features
-* GPs (`filename.ipynb`):
-* RNN (`filename.ipynb`):
